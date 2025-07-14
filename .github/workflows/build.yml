@@ -29,6 +29,7 @@ jobs:
     # - name: Install Tesseract (optional)
     #   run: choco install tesseract --version 5.3.3 -y
 
+
     - name: Build EXE with PyInstaller
       run: |
         pyinstaller compare_ocr.py ^
