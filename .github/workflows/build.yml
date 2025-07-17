@@ -31,7 +31,7 @@ jobs:
 
 
     - name: Build EXE with PyInstaller
-      run: pyinstaller compare_ocr.py --onefile --name compare_ocr --add-data "data.xlsx;." --add-data "docs;docs" --hidden-import fitz
+      run: pyinstaller compare_ocr.py --onefile --name compare_ocr --add-data "data.xlsx;." --add-data "docs;docs" --hidden-import fitz   --collect-all paddleocr
 
     # ① 上传 CI Artifact，便于在 Actions 里下载
     - name: Upload artifact
