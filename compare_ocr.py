@@ -369,20 +369,17 @@ def eq(exp, act, fuzzy=False, th=90) -> bool:
 # ─────────────────────────────────────────────────────────────────────────────
 def ask_user_inputs() -> tuple[Path, Path]:
     root = Tk()
-    root.withdraw()
+    root.withdraw()               # 先隐藏主窗口
+    root.attributes('-topmost', True)   # ✨ 让对话框永远置顶
+    # --------- 下面不变 ----------
     excel = filedialog.askopenfilename(
-        title="请选择人员信息 Excel (data.xlsx)",
-        filetypes=[("Excel 文件", "*.xlsx"), ("所有文件", "*.*")]
+        title="选择 data.xlsx", filetypes=[("Excel 文件", "*.xlsx")]
     )
     if not excel:
-        sys.exit("❌ 未选择 Excel！")
-
-    docs = filedialog.askdirectory(
-        title="请选择资料文件夹 (docs，每人一个子文件夹)"
-    )
+        exit("❌未选择 Excel")
+    docs = filedialog.askdirectory(title="选择资料文件夹（docs）")
     if not docs:
-        sys.exit("❌ 未选择资料文件夹！")
-
+        exit("❌未选择资料文件夹")
     return Path(excel), Path(docs)
 
 
