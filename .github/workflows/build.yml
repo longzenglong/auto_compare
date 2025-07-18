@@ -31,7 +31,7 @@ jobs:
 
 
     - name: Build EXE with PyInstaller
-      run:  pyinstaller auto.py  --onefile  --name compare_ocr  --collect-all paddleocr  --collect-all pillow  --collect-submodules tools  --collect-submodules tools.infer  --hidden-import PIL.ImageDraw  --hidden-import PIL.ImageFont  --hidden-import PIL.Image  --hidden-import fitz  --add-data "data.xlsx;."  --add-data "docs;docs"
+      run:  pyinstaller compare_ocr.py  --onefile  --name compare_ocr  --collect-all paddleocr  --collect-all pillow  --collect-submodules tools  --collect-submodules tools.infer  --hidden-import PIL.ImageDraw  --hidden-import PIL.ImageFont  --hidden-import PIL.Image  --hidden-import fitz  --add-data "data.xlsx;."  --add-data "docs;docs"
     # ① 上传 CI Artifact，便于在 Actions 里下载
     - name: Upload artifact
       uses: actions/upload-artifact@v4
