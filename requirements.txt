@@ -13,3 +13,4 @@ rapidfuzz==3.13.0
 scipy==1.15.3
 # 打包机需用 PyInstaller；开发机可选装
 pyinstaller==6.6.0
+paddleocr==2.6.1.3
